@@ -18,5 +18,4 @@
         "mongoose": "^7.5.3",
         "nodemailer": "^6.9.5"
     }
-    "engines": {"node": "^20.9.0"}
 }
