@@ -1,0 +1,121 @@
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    code {
+        font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    }
+    
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+    .menu a,
+    .new-signup-class a,
+    button a {
+        text-decoration: none !important;
+    }
+    
+    .menu a {
+        text-align: center;
+        border-right: 2px solid white;
+        display: inline-block;
+        width: 105px;
+        height: 35px;
+        line-height: 15px;
+        margin-left: -3px;
+        float: left;
+        padding: 10px;
+    }
+    
+    .form-switch {
+        display: inline;
+        width: 5px;
+        height: 5px;
+        line-height: 5px;
+        margin-left: -130px;
+        float: left;
+        padding: 15px;
+        text-transform: capitalize;
+    }
+    
+    .new-signup-class {
+        display: inline;
+        margin-left: 10px;
+    }
+    
+    button {
+        background-color: rgb(169, 169, 169);
+        border-color: gray;
+    }
+    
+    a {
+        color: white !important;
+    }
+    
+    .form-check-input:checked {
+        background-color: black !important;
+        border-color: white !important;
+    }
+    
+    .form-check-input {
+        background-color: white !important;
+        border-color: black !important;
+    }
+    
+    .bg-blue-50 {
+        background-color: rgba(182, 182, 182, 0.529);
+        border-color: white !important;
+    }
+    
+    button.text-white {
+        background: none;
+        font-style: italic;
+    }
+    
+    .text-\[\#2563eb\] {
+        background-color: rgb(169, 169, 169);
+    }
+    
+    .bg-blue-200 {
+        background-color: rgb(169, 169, 169);
+    }
+    
+    .border-solid {
+        color: gray !important;
+    }
+    
+    .px-3 {
+        border-color: gray;
+    }
+    
+    input[type="submit" i],
+    .border-indigo-300,
+    .border-indigo-400 {
+        border-color: gray
+    }
+    
+    div.visible {
+        display: inline;
+    }
+    
+    .bg-green-300,
+    .bg-blue-300,
+    .bg-red-300 {
+        background-color: rgb(169, 169, 169);
+    }
+    
+    .bg-orange-100 {
+        background-color: rgb(205, 205, 205);
+    }
+    
+    input {
+        border-color: gray;
+    }
+    
+    .bg-blue-500,
+    .bg-gray-500 {
+        background-color: rgb(136, 135, 135);
+    }
