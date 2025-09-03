@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import RealTimeClock from './RealTimeClock';
 
 class Home extends Component {
   render() {
@@ -13,6 +14,7 @@ class Home extends Component {
         />
         <div>
           <h2 className="font-bold text-8xl">Account Admin</h2>
+          <RealTimeClock />
         </div>
       </div>
     );
