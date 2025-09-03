@@ -29,8 +29,9 @@ class Product extends Component {
   };
   render() {
     const prods = this.state.products.map((item) => {
+      const isSelected = this.state.itemSelected && this.state.itemSelected._id === item._id;
       return (
-        <tr key={item._id} className="datatable" onClick={() => this.trItemClick(item)}>
+        <tr key={item._id} className={`datatable fade-in-up ${isSelected ? 'selected-row' : ''}`} onClick={() => this.trItemClick(item)}>
           <td>{item._id}</td>
           <td>{item.name}</td>
           <td>{item.price}</td>
@@ -40,13 +41,15 @@ class Product extends Component {
         </tr>
       );
     });
-    const pagination = Array.from({ length: this.state.noPages }, (_, index) => {
-      if ((index + 1) === this.state.curPage) {
-        return (<span key={index}>| <b>{index + 1}</b> |</span>);
-      } else {
-        return (<span key={index} className="link" onClick={() => this.lnkPageClick(index + 1)}>| {index + 1} |</span>);
-      }
-    });
+    const pagination = Array.from({ length: this.state.noPages }, (_, index) => (
+      <span
+        key={index}
+        className={`pagination-number fade-in-up ${this.state.curPage === index + 1 ? 'active' : ''}`}
+        onClick={() => this.lnkPageClick(index + 1)}
+      >
+        {index + 1}
+      </span>
+    ));
     return (
       
       <div>
@@ -55,7 +58,7 @@ class Product extends Component {
          <div className="w-[50%]">
           <h2 className="text-center text-2xl font-bold text-red">PRODUCT LIST</h2>
           <table className="datatable mt-3" border="1">
-            <tbody>
+            <tbody key={this.state.curPage} className="page-transition">
               <tr className="datatable">
                 <th>ID</th>
                 <th>Name</th>
@@ -71,12 +74,7 @@ class Product extends Component {
                       {pagination.map((page, index) => (
                         <React.Fragment key={index}>
                           {index > 0 && <span className="pagination-separator "></span>}
-                          <span
-                            className={`pagination-number ${this.state.curPage === index + 1 ? 'active' : ''}`}
-                            onClick={() => this.lnkPageClick(index + 1)}
-                          >
-                            {page}
-                          </span>
+                          {page}
                         </React.Fragment>
                       ))}
                       <span className="pagination-arrow font-bold text-3xl" onClick={this.increasePage}>&gt;</span>
