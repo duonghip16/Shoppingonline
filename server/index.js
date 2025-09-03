@@ -16,6 +16,23 @@ app.get('/hello', (req, res) => {
 
 app.use('/api/admin', require('./api/admin.js'));
 app.use('/api/customer', require('./api/customer.js'));
+// Real-time clock endpoint using Server-Sent Events
+app.get('/api/time', (req, res) => {
+  res.set({
+    'Cache-Control': 'no-cache',
+    'Content-Type': 'text/event-stream',
+    'Connection': 'keep-alive',
+  });
+  const sendTime = () => {
+    res.write(`data: ${JSON.stringify({ time: new Date().toISOString() })}\n\n`);
+  };
+  // send initial time and then every second
+  sendTime();
+  const interval = setInterval(sendTime, 1000);
+  req.on('close', () => {
+    clearInterval(interval);
+  });
+});
 // deployment
 const path = require('path');
 // '/admin' serve the files at client-admin/build/* as static files
